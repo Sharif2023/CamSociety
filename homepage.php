@@ -509,9 +509,9 @@
                 <a href="uiusupplementhomepage.php">Dashboard</a>
                 <a href="useraccount.php">My Profile</a>
                 <a href="#">My Sell list</a>
-                <a href="#">Lost Product Update</a>
-                <a href="#">My Mentors</a>
-                <a href="uiusupplementlogin.html" class="logout-btn">
+                <a href="#">Hired Photographer</a>
+                <a href="#">My Photo on Sale</a>
+                <a href="#" class="logout-btn">
                   <i class="fas fa-sign-out-alt"></i> Log Out
                 </a>
               </div>
@@ -611,25 +611,25 @@
               <img src="sample_photographer_photo/photographer1.jpg" alt="Photographer">
               <h3>John Doe</h3>
               <p>Specialization: Weddings</p>
-              <p>Rate: $100/hr</p>
+              <p>Rate: BDT 1,00,000/hr</p>
             </div>
             <div class="card">
               <img src="sample_photographer_photo/photographer2.jpg" alt="Photographer">
               <h3>Jane Smith</h3>
               <p>Specialization: Portraits</p>
-              <p>Rate: $80/hr</p>
+              <p>Rate: BDT 80,000/hr</p>
             </div>
             <div class="card">
               <img src="sample_photographer_photo/photographer3.jpg" alt="Photographer">
               <h3>Michael Brown</h3>
               <p>Specialization: Events</p>
-              <p>Rate: $120/hr</p>
+              <p>Rate: BDT 1,20,000/hr</p>
             </div>
             <div class="card">
               <img src="sample_photographer_photo/photographer4.jpg" alt="Photographer">
               <h3>Michael Brown</h3>
               <p>Specialization: Events</p>
-              <p>Rate: $120/hr</p>
+              <p>Rate: BDT 1,20,000/hr</p>
             </div>
           </div>
         </div>
