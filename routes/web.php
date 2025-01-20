@@ -5,6 +5,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\EventController;
 use Inertia\Inertia;
 
 // Public routes
@@ -39,5 +40,8 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/blogsntips', [HomeController::class, 'blogsntips'])->name('blogsntips');
     
 });
+
+//event upload
+Route::post('/events', [EventController::class, 'store']);
 
 require __DIR__ . '/auth.php';
