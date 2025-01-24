@@ -19,7 +19,7 @@ const UploadEvent = () => {
         const date = new Date(dateString);
         return date.toISOString().split('T')[0]; // This will return the date in 'YYYY-MM-DD' format
     };
-    
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -44,48 +44,109 @@ const UploadEvent = () => {
     return (
         <>
             <Head title="Upload Event - CamSociety" />
-            
-            <header className="bg-[#1F1F1F] flex justify-between items-center p-5">
-                <div className="text-2xl text-white font-bold flex items-center">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor"
-                        class="size-6 w-8 h-8">
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
-                        <path stroke-linecap="round" stroke-linejoin="round"
-                            d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z" />
-                    </svg>
-                    CAMSOCIETY
-                </div>
-                <nav className="space-x-5 text-white font-bold hidden md:flex">
-                    <a href="#" className="hover:text-[#FF3300]">Home</a>
-                    <a href="/marketplaceAll" className="hover:text-[#FF3300]">Marketplace</a>
-                    <a href="/buy_photo" className="hover:text-[#FF3300]">Buy Photo</a>
-                    <a href="/hirePhotographer" className="hover:text-[#FF3300]">Hire Photographer</a>
-                    <a href="/upload_event" className="text-[#FF3300]">Event Listing</a>
-                    <a href="/blogandtips" className="hover:text-[#FF3300]">Blog & Tips</a>
-                </nav>
-                <div className="flex text-white space-x-5 px-5">
-                    <a href="/cart" className="hover:text-[#FF3300]">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 0 0-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 0 0-16.536-1.84M7.5 14.25 5.106 5.272M6 20.25a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Zm12.75 0a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z" />
-                        </svg>
-                    </a>
-                    <a href="#" className="hover:text-[#FF3300]">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M12 20.25c4.97 0 9-3.694 9-8.25s-4.03-8.25-9-8.25S3 7.444 3 12c0 2.104.859 4.023 2.273 5.48.432.447.74 1.04.586 1.641a4.483 4.483 0 0 1-.923 1.785A5.969 5.969 0 0 0 6 21c1.282 0 2.47-.402 3.445-1.087.81.22 1.668.337 2.555.337Z" />
-                        </svg>
-                    </a>
-                    <a href="/UserProfile" className="hover:text-[#FF3300]">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none"
-                            viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
-                            <path stroke-linecap="round" stroke-linejoin="round"
-                                d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
-                        </svg>
-                    </a>
+
+            <header className="bg-[#F8E9E7]">
+                <div className="container mx-auto flex justify-between items-center py-4">
+                    <div className="flex items-center gap-3">
+                        <img src="https://placehold.co/40x40" alt="CamSocity Logo" className="h-10 w-10" />
+                        <span className="text-lg">
+                            <p className="font-semibold">CamSociety</p>Your Photography Hub
+                        </span>
+                    </div>
+                    <nav className="hidden md:flex items-center gap-8">
+                        <a
+                            href="/dashboard"
+                            className="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium leading-5 transition duration-150 ease-in-out focus:outline-none border-indigo-400 text-gray-900 focus:border-indigo-700"
+                        >
+                            Home
+                        </a>
+                        <a
+                            href="/photomarket"
+                            className="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium leading-5 transition duration-150 ease-in-out focus:outline-none border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 focus:border-gray-300 focus:text-gray-700"
+                        >
+                            Photo Market
+                        </a>
+                        <a
+                            href="/hirephotographer"
+                            className="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium leading-5 transition duration-150 ease-in-out focus:outline-none border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 focus:border-gray-300 focus:text-gray-700"
+                        >
+                            Hire Photographer
+                        </a>
+                        <a
+                            href="/eventbook"
+                            className="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium leading-5 transition duration-150 ease-in-out focus:outline-none border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 focus:border-gray-300 focus:text-gray-700"
+                        >
+                            Book Event
+                        </a>
+                        <a
+                            href="/blogsntips"
+                            className="inline-flex items-center border-b-2 px-1 pt-1 text-sm font-medium leading-5 transition duration-150 ease-in-out focus:outline-none border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 focus:border-gray-300 focus:text-gray-700"
+                        >
+                            Blog & Tips
+                        </a>
+                    </nav>
+                    <div className="flex items-center gap-4">
+                        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+                            <div className="flex h-16 justify-between">
+                                <div className="hidden sm:ms-6 sm:flex sm:items-center">
+                                    <div className="relative ms-3">
+                                        <div className="relative">
+                                            <div>
+                                                <span className="inline-flex rounded-md">
+                                                    <button
+                                                        type="button"
+                                                        className="inline-flex items-center rounded-md border border-transparent bg-white px-3 py-2 text-sm font-medium leading-4 text-gray-500 transition duration-150 ease-in-out hover:text-gray-700 focus:outline-none"
+                                                    >
+                                                        Shariful Islam
+                                                        <svg className="-me-0.5 ms-2 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                                                            <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd"></path>
+                                                        </svg>
+                                                    </button>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div className="-me-2 flex items-center sm:hidden">
+                                    <button className="inline-flex items-center justify-center rounded-md p-2 text-gray-400 transition duration-150 ease-in-out hover:bg-gray-100 hover:text-gray-500 focus:bg-gray-100 focus:text-gray-500 focus:outline-none">
+                                        <svg className="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                                            <path className="inline-flex" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="hidden sm:hidden">
+                            <div className="space-y-1 pb-3 pt-2">
+                                <a
+                                    href="/dashboard"
+                                    className="flex w-full items-start border-l-4 py-2 pe-4 ps-3 border-indigo-400 bg-indigo-50 text-indigo-700 focus:border-indigo-700 focus:bg-indigo-100 focus:text-indigo-800 text-base font-medium transition duration-150 ease-in-out focus:outline-none"
+                                >
+                                    Dashboard
+                                </a>
+                            </div>
+                            <div className="border-t border-gray-200 pb-1 pt-4">
+                                <div className="px-4">
+                                    <div className="text-base font-medium text-gray-800">Shariful Islam</div>
+                                    <div className="text-sm font-medium text-gray-500">sharifislam0505@gmail.com</div>
+                                </div>
+                                <div className="mt-3 space-y-1">
+                                    <a
+                                        href="/profile"
+                                        className="flex w-full items-start border-l-4 py-2 pe-4 ps-3 border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 focus:border-gray-300 focus:bg-gray-50 focus:text-gray-800 text-base font-medium transition duration-150 ease-in-out focus:outline-none"
+                                    >
+                                        Profile
+                                    </a>
+                                    <button
+                                        className="flex w-full items-start border-l-4 py-2 pe-4 ps-3 border-transparent text-gray-600 hover:border-gray-300 hover:bg-gray-50 hover:text-gray-800 focus:border-gray-300 focus:bg-gray-50 focus:text-gray-800 text-base font-medium transition duration-150 ease-in-out focus:outline-none"
+                                        type="button"
+                                    >
+                                        Log Out
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </header>
             <section className="underline text-[#FF3300] text-end pr-5">
@@ -93,7 +154,7 @@ const UploadEvent = () => {
             </section>
             <main className="max-w-4xl mx-auto p-6 mt-6 border border-b-gray-200 bg-white rounded-lg shadow-lg">
                 <h1 className="text-3xl font-bold mb-6 text-center">List a New Event</h1>
-                <form onSubmit={handleSubmit}  className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4">
                     <div className="mb-6">
                         <label htmlFor="event_name" className="block mb-2 text-sm font-medium text-gray-900">Event Name</label>
                         <input
@@ -251,67 +312,14 @@ const UploadEvent = () => {
                     </div>
                 </form>
             </main>
-            <footer className="bg-[#1F1F1F] text-white py-6">
-                <div className="container mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 pl-5">
-                    {/* About */}
-                    <div>
-                        <h3 className="font-bold text-lg mb-2">About</h3>
-                        <p>
-                            CamSociety is your one-stop platform for photographers and camera enthusiasts. Buy, sell, hire
-                            photographers, and rent equipment all in one place.
-                        </p>
+            <footer className="bg-[#F8E9E7] py-6">
+                <div className="container mx-auto text-center">
+                    <p className="text-gray-600">© 2025 CamSociety. All rights reserved.</p>
+                    <div className="flex justify-center gap-6 mt-4">
+                        <a href="#" className="text-gray-600 hover:text-gray-900">Privacy Policy</a>
+                        <a href="#" className="text-gray-600 hover:text-gray-900">Terms of Service</a>
+                        <a href="#" className="text-gray-600 hover:text-gray-900">Contact Us</a>
                     </div>
-                    <div>
-                        <h3 className="font-bold text-lg mb-2">Quick Links</h3>
-                        <ul>
-                            <li>
-                                <a href="/hirePhotographer" className="hover:text-[#FF3300]">
-                                    Hire Photographer
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/upload_event" className="hover:text-[#FF3300]">
-                                    Book Events
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/saleProducts" className="hover:text-[#FF3300]">
-                                    Sell Items
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    {/* Contact */}
-                    <div>
-                        <h3 className="font-bold text-lg mb-2">Contact</h3>
-                        <p>Email: support@camsociety.com</p>
-                        <p>Phone: 123-456-7890</p>
-                        <p>Address: 123 Photo Street, Photography City</p>
-                    </div>
-                    {/* FAQ */}
-                    <div>
-                        <h3 className="font-bold text-lg mb-2">FAQ</h3>
-                        <ul>
-                            <li>
-                                <a href="#" className="hover:text-[#FF3300]">
-                                    How to sell photos?
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="hover:text-[#FF3300]">
-                                    How to rent equipment?
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#" className="hover:text-[#FF3300]">
-                                    Payment options
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <div className="text-center text-gray-400 mt-6">
-                    &copy; 2025 CamSociety. All rights reserved.
                 </div>
             </footer>
         </>

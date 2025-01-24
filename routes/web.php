@@ -7,7 +7,9 @@ use App\Http\Controllers\PhotographerController;
 use App\Http\Controllers\PhotoSellController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
+//git add
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\BlogNTipController;
 use Inertia\Inertia;
 
 // Public routes
@@ -51,10 +53,11 @@ Route::post('/events', [EventController::class, 'store']);
 //eventlist
 Route::get('/EventList', [EventController::class, 'index'])->name('events.list');
 //photographer blogntip
-Route::get('/photographer-blogntips', function () {
+Route::get('/photographer-blog-tips', function () {
     return Inertia::render('PhotographerView/PhotographerBlogNTips');
 });
-
+//send post blogNtips data to database
+Route::post('/blogntips', [BlogNTipController::class, 'store'])->name('blogntips.store');
 
 
 require __DIR__ . '/auth.php';
