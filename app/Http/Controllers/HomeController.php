@@ -55,4 +55,9 @@ class HomeController extends Controller
     {
         return Inertia::render('BlogTip/Index');
     }
+
+    public function photographerblogsntips()
+    {
+        return Inertia::render('PhotographerView/PhotographerBlogNTips');
+    }
 }

@@ -1,8 +1,10 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\PhotographerController;
+use App\Http\Controllers\PhotoSellController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EventController;
@@ -13,18 +15,14 @@ Route::get('/', [HomeController::class, 'index'])->name('landing'); // Landing p
 Route::get('/login', [HomeController::class, 'login'])->name('login');
 Route::get('/signup', [HomeController::class, 'signup'])->name('signup');
 
-
-// Admin routes
-Route::middleware(['auth', 'verified', 'role:admin'])->group(function () {
-    Route::get('/admin', [HomeController::class, 'admin'])->name('admin.dashboard');
-    Route::redirect('/dashboard', '/admin'); // Redirect dashboard to admin
-
-    Route::get('/admin/users', [AdminController::class, 'users'])->name('admin.users');
-});
-
 // User routes
 Route::middleware(['auth', 'verified', 'role:user'])->group(function () {
     Route::get('/dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+});
+
+// Photographer routes
+Route::prefix('photographer')->middleware(['auth', 'verified', 'role:photographer'])->group(function () {
+    Route::get('/dashboard', [PhotographerController::class, 'index'])->name('photographer.dashboard');
 });
 
 Route::middleware('auth')->group(function () {
@@ -34,14 +32,30 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/photomarket', [HomeController::class, 'photomarket'])->name('photomarket');
+    Route::get('/photomarket', [PhotoSellController::class, 'index'])->name('photomarket');
     Route::get('/hirephotographer', [HomeController::class, 'hirephotographer'])->name('hirephotographer');
     Route::get('/eventbook', [HomeController::class, 'eventbook'])->name('eventbook');
     Route::get('/blogsntips', [HomeController::class, 'blogsntips'])->name('blogsntips');
-    
+});
+
+
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/cart', [CartController::class, 'index'])->name('cart.index');
+    Route::post('/cart', [CartController::class, 'store'])->name('cart.store');
+    Route::delete('/cart/{id}', [CartController::class, 'destroy'])->name('cart.destroy');
+    Route::put('/cart/{id}', [CartController::class, 'update'])->name('cart.update');
 });
 
 //event upload
 Route::post('/events', [EventController::class, 'store']);
+//eventlist
+Route::get('/EventList', [EventController::class, 'index'])->name('events.list');
+//photographer blogntip
+Route::get('/photographer-blogntips', function () {
+    return Inertia::render('PhotographerView/PhotographerBlogNTips');
+});
+
+
 
 require __DIR__ . '/auth.php';
+require __DIR__ . '/admin-auth.php';

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AuthenticatedLayout from "@/Layouts/AuthenticatedLayout";
 import { Head } from "@inertiajs/react";
 
-const BlogAndTips = () => {
+const PhotographerBlogNTips = () => {
   const [activeModal, setActiveModal] = useState(null);
 
   const openModal = (modalId) => setActiveModal(modalId);
@@ -34,28 +34,28 @@ const BlogAndTips = () => {
       },
     },
     {
-        id: 2,
+      id: 2,
+      title: "5 Tricks for Outdoor Portraits",
+      description: "Learn how to make the most of natural light to create stunning portraits...",
+      image: "photos/blogandtipspost2.png",
+      author: "Jane Smith",
+      modalContent: {
         title: "5 Tricks for Outdoor Portraits",
-        description: "Learn how to make the most of natural light to create stunning portraits...",
         image: "photos/blogandtipspost2.png",
-        author: "Jane Smith",
-        modalContent: {
-          title: "5 Tricks for Outdoor Portraits",
-          image: "photos/blogandtipspost2.png",
-          content: (
-            <>
-              <p>Here are some tricks to take stunning outdoor portraits:</p>
-              <ul className="list-disc pl-6 space-y-2 text-gray-600">
-                <li>Use the golden hour for soft and warm light.</li>
-                <li>Experiment with bokeh by using a wide aperture.</li>
-                <li>Consider your background to enhance the subject.</li>
-                <li>Capture candid moments to convey emotions.</li>
-                <li>Make use of natural surroundings for a more dynamic composition.</li>
-              </ul>
-            </>
-          ),
-        },
+        content: (
+          <>
+            <p>Here are some tricks to take stunning outdoor portraits:</p>
+            <ul className="list-disc pl-6 space-y-2 text-gray-600">
+              <li>Use the golden hour for soft and warm light.</li>
+              <li>Experiment with bokeh by using a wide aperture.</li>
+              <li>Consider your background to enhance the subject.</li>
+              <li>Capture candid moments to convey emotions.</li>
+              <li>Make use of natural surroundings for a more dynamic composition.</li>
+            </ul>
+          </>
+        ),
       },
+    },
   ];
 
   return (
@@ -168,7 +168,9 @@ const BlogAndTips = () => {
           )
       )}
     </AuthenticatedLayout>
+    
   );
+  
 };
 
-export default BlogAndTips;
+export default PhotographerBlogNTips;

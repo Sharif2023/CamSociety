@@ -2,8 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use Inertia\Inertia;
 use Illuminate\Http\Request;
 use App\Models\Event; // Import the Event model
+
+use Illuminate\Support\Facades\Log;
+
 
 class EventController extends Controller
 {
@@ -35,10 +39,24 @@ class EventController extends Controller
         if ($request->hasFile('photo')) {
             $photoPath = $request->file('photo')->store('photos', 'public');
             $event->photo_url = $photoPath; // Assuming 'photo_url' is the column in your database
-        }              
+        }
 
         $event->save();
 
         return response()->json(['message' => 'Event uploaded successfully!', 'event' => $event], 200);
     }
+
+    //To show all event list
+    public function index()
+    {
+        $events = Event::select('id', 'event_name', 'location', 'start_date', 'end_date', 'rate', 'photo_url')->get();
+
+        // Log data to verify
+        \Log::info('Fetched Events:', $events->toArray());
+
+        return Inertia::render('EventListing', [
+            'events' => $events
+        ]);
+    }
+    
 }

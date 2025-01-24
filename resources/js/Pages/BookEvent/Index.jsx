@@ -89,7 +89,7 @@ const UploadEvent = () => {
                 </div>
             </header>
             <section className="underline text-[#FF3300] text-end pr-5">
-                <a href="/eventdetails">See Events details</a>
+                <a href="/EventList">See Events details</a>
             </section>
             <main className="max-w-4xl mx-auto p-6 mt-6 border border-b-gray-200 bg-white rounded-lg shadow-lg">
                 <h1 className="text-3xl font-bold mb-6 text-center">List a New Event</h1>
